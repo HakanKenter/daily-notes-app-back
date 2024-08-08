@@ -2,6 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+// Configure CORS
+const corsOptions = {
+    origin: 'https://hk-diete.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  };
+  
+app.use(cors(corsOptions));
+
 const app = express();
 
 app.use(cors());
