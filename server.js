@@ -1,18 +1,21 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
+
+  
+const app = express();
 
 // Configure CORS
 const corsOptions = {
     origin: 'https://hk-diete.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
-  };
+};
   
-app.use(cors(corsOptions));
 
-const app = express();
+app.use(cors(corsOptions));
 
 app.use(cors());
 app.use(express.json());
