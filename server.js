@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config();
 
 // Configure CORS
 const corsOptions = {
@@ -15,9 +16,11 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+// mongodb+srv://hakankenter:<password>@cluster0.pdqqc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
+const mongoURI = process.env.MONGO_URI || "mongodb+srv://hakankenter:Hakankenter782%40@cluster0.pdqqc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/dailyNotes', {
+mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log("MongoDB connected"))
